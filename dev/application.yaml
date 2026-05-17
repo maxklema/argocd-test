@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha
+kind: Application
+metadata:
+  name: myapp-argo-application
+  namespace: argocd
+spec:
+  project: default
+  source: 
+    repoURL: 
+    targetRevision: HEAD # last commit in repository
+    path: dev
+  destination:
+    server: https://kubernetes.default.svc 
+    namespace: myapp
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated: # polls Git repo every 3 minutes
+      selfHeal: true
+      prune: true
