@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source: 
-    repoURL: 
+    repoURL: https://github.com/maxklema/argocd-test.git 
     targetRevision: HEAD # last commit in repository
     path: dev
   destination:
